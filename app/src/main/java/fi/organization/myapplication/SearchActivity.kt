@@ -1,4 +1,78 @@
 package fi.organization.myapplication
 
-class SearchActivity {
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import com.fasterxml.jackson.databind.ObjectMapper
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.net.HttpURLConnection
+import java.net.URL
+import kotlin.concurrent.thread
+
+class SearchActivity : AppCompatActivity() {
+
+    private lateinit var searchBox: EditText
+    private lateinit var searchResult: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_search)
+
+        searchBox = findViewById(R.id.search_box)
+        searchResult = findViewById(R.id.search_result)
+
+        findViewById<Button>(R.id.search_button).setOnClickListener {
+
+            // Get the search text from the search box
+            val searchText = searchBox.text?.toString() ?: ""
+
+            // If the search text is not empty, start a background thread to fetch data from a URL
+            if (searchText.isNotEmpty()) {
+                thread {
+                    val url = getUrl("https://dummyjson.com/users/")
+                    val mp = ObjectMapper()
+                    val myObject: UserJsonObject = mp.readValue(url, UserJsonObject::class.java)
+                    val persons: MutableList<Person>? = myObject.users
+
+                    // Filter the list of persons based on whether their first or last name contains the search text
+                    var names = ""
+                    persons?.filter { it.firstName?.contains(searchText, ignoreCase = true) == true ||
+                            it.lastName?.contains(searchText, ignoreCase = true) == true
+                    }?.forEach { person ->
+                        names += person.firstName + " " + person.lastName + "\n"
+                    }
+
+                    // Update  UI with the search result
+                    runOnUiThread {
+                        searchResult.text = names
+                    }
+                }
+            } else {
+                // If the search text is empty, print nothing
+                searchResult.text = ""
+            }
+        }
+    }
+
+    //Function fetches data from a URL and return it as a string
+    private fun getUrl(url: String): String {
+        val myUrl = URL(url)
+        val conn = myUrl.openConnection() as HttpURLConnection
+        val reader = BufferedReader(InputStreamReader(conn.inputStream))
+        var input = ""
+
+        reader.use {
+            var line = it.readLine()
+
+            while (line != null) {
+                input += line
+                line = it.readLine()
+            }
+        }
+        reader.close()
+        return input
+    }
 }

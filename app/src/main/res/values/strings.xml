@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="search">Search</string>
+    <string name="write_text">Write text</string>
+    <string name="Users">Go to Users</string>
+    <string name="Search">Go to Search</string>
 </resources>
