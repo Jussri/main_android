@@ -31,6 +31,10 @@
             android:label="Search"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".UserDetailsActivity"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

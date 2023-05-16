@@ -2,6 +2,10 @@
     <string name="app_name">My Application</string>
     <string name="search">Search</string>
     <string name="write_text">Write text</string>
-    <string name="Users">Go to Users</string>
-    <string name="Search">Go to Search</string>
+    <string name="Users">Users list</string>
+    <string name="Search">Search page</string>
+    <string name="user_image_description" />
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="add_user">Add user</string>
 </resources>

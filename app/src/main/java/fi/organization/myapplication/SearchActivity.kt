@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -29,7 +30,7 @@ class SearchActivity : AppCompatActivity() {
             // Get the search text from the search box
             val searchText = searchBox.text?.toString() ?: ""
 
-            // If the search text is not empty, start a background thread to fetch data from a URL
+            // If the search text is not empty, start a background thread to fetch data from URL
             if (searchText.isNotEmpty()) {
                 thread {
                     val url = getUrl("https://dummyjson.com/users/")
@@ -45,14 +46,14 @@ class SearchActivity : AppCompatActivity() {
                         names += person.firstName + " " + person.lastName + "\n"
                     }
 
-                    // Update  UI with the search result
+                    // Update UI with search result
                     runOnUiThread {
                         searchResult.text = names
                     }
                 }
             } else {
                 // If the search text is empty, print nothing
-                searchResult.text = ""
+                Toast.makeText(this, "Text field empty", Toast.LENGTH_SHORT).show()
             }
         }
     }
