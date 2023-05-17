@@ -30,7 +30,8 @@ class SearchActivity : AppCompatActivity() {
             // Get the search text from the search box
             val searchText = searchBox.text?.toString() ?: ""
 
-            // If the search text is not empty, start a background thread to fetch data from URL
+            //If the search text is not empty,
+            // start a background thread to fetch data from URL
             if (searchText.isNotEmpty()) {
                 thread {
                     val url = getUrl("https://dummyjson.com/users/")
@@ -38,9 +39,11 @@ class SearchActivity : AppCompatActivity() {
                     val myObject: UserJsonObject = mp.readValue(url, UserJsonObject::class.java)
                     val persons: MutableList<Person>? = myObject.users
 
-                    // Filter the list of persons based on whether their first or last name contains the search text
+                    //Filter the list of persons based
+                    //on whether first or last name contains the search text
                     var names = ""
-                    persons?.filter { it.firstName?.contains(searchText, ignoreCase = true) == true ||
+                    persons?.filter { it.firstName?.contains(searchText,
+                        ignoreCase = true) == true ||
                             it.lastName?.contains(searchText, ignoreCase = true) == true
                     }?.forEach { person ->
                         names += person.firstName + " " + person.lastName + "\n"

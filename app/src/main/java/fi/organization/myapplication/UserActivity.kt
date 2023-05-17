@@ -38,12 +38,13 @@ class UserActivity : AppCompatActivity() {
                 firstNameEditText.text.clear()
                 lastNameEditText.text.clear()
             } else {
-                Toast.makeText(this, "Please enter first name and last name", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill out from", Toast.LENGTH_SHORT).show()
             }
         }
 
         //Initialize adapter and set it to ListView
-        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ArrayList<String>())
+        adapter = ArrayAdapter(this,
+            android.R.layout.simple_list_item_1, ArrayList<String>())
         listView.adapter = adapter
 
         showUsers()
