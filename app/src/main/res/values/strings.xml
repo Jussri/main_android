@@ -8,4 +8,10 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="add_user">Add user</string>
+    <string name="phone_edit">Phone number</string>
+    <string name="firstName_edit">First name</string>
+    <string name="lastName_edit">Last name</string>
+    <string name="delete_user">Delete User</string>
+    <string name="update_user">Update User</string>
+    <string name="age_edit">Age</string>
 </resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+
+    <EditText
+        android:id="@+id/edit_firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:autofillHints="update_firstName"
+        android:hint="@string/firstName_edit"
+        android:minHeight="48dp"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/edit_lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:autofillHints="update_lastName"
+        android:hint="@string/lastName_edit"
+        android:minHeight="48dp"
+        tools:ignore="LabelFor" />
+
+
+    <EditText
+        android:id="@+id/edit_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:autofillHints="update_number"
+        android:hint="@string/age_edit"
+        android:minHeight="48dp"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/edit_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:autofillHints="update_phone"
+        android:hint="@string/phone_edit"
+        android:minHeight="48dp"
+        tools:ignore="LabelFor" />
+
+</LinearLayout>

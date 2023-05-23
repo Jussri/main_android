@@ -4,10 +4,8 @@ package fi.organization.myapplication
 import android.content.Intent
 import com.bumptech.glide.Glide
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
@@ -17,6 +15,7 @@ class UserDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_details)
 
+        //Initialize UI elements
         val firstNameTextView = findViewById<TextView>(R.id.user_firstName)
         val lastNameTextView = findViewById<TextView>(R.id.user_lastName)
         val ageTextView = findViewById<TextView>(R.id.user_age)
@@ -45,37 +44,74 @@ class UserDetailsActivity : AppCompatActivity() {
 
         //Set click listener for delete button
         deleteButton.setOnClickListener {
-            showDeleteButton()
+            deleteButton()
         }
 
         //Set click listener for update button
         updateButton.setOnClickListener {
-            showUpdateButton()
+            updateButton()
         }
     }
 
     //Show confirmation dialog for deleting user
-    private fun showDeleteButton() {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("Are you sure you want to delete this user?")
-        builder.setPositiveButton("Yes") { _, _ ->
+    private fun deleteButton() {
+        AlertDialog.Builder(this)
+        .setMessage("Are you sure you want to delete this user?")
+        .setPositiveButton("Yes") { _, _ ->
 
             //Perform toast for deleting user
             Toast.makeText(this, "User deleted", Toast.LENGTH_SHORT).show()
 
             //Return to user activity page
             val intent = Intent(this, UserActivity::class.java)
-
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
                     Intent.FLAG_ACTIVITY_SINGLE_TOP)
             startActivity(intent)
         }
-        builder.setNegativeButton("No", null)
-        builder.show()
+        .setNegativeButton("No", null)
+        .show()
     }
 
-    private fun showUpdateButton() {
-        Toast.makeText(this, "User information updated", Toast.LENGTH_SHORT).show()
-    }
+    //Shows a dialog box for editing user details and updates the UI
+    private fun updateButton() {
 
+        //Inflate layout for dialog box
+        val updateView = View.inflate(this, R.layout.edit_user_details, null)
+
+        //Initialize UI elements
+        val firstNameEdit = updateView.findViewById<EditText>(R.id.edit_firstName)
+        val lastNameEdit = updateView.findViewById<EditText>(R.id.edit_lastName)
+        val ageEdit = updateView.findViewById<EditText>(R.id.edit_age)
+        val phoneEdit = updateView.findViewById<EditText>(R.id.edit_phone)
+
+        //Dialog box
+        AlertDialog.Builder(this)
+            .setTitle("Edit User Details")
+            .setView(updateView)
+            .setPositiveButton("Save") { _, _ ->
+
+                //When Save button is clicked, retrieve the updated user details
+                val updatedFirstName = firstNameEdit.text.toString()
+                val updatedLastName = lastNameEdit.text.toString()
+                val updatedAge = ageEdit.text.toString()
+                val updatedPhone = phoneEdit.text.toString()
+
+                //Update the UI with the updated details
+                val firstNameTextView = findViewById<TextView>(R.id.user_firstName)
+                val lastNameTextView = findViewById<TextView>(R.id.user_lastName)
+                val ageTextView = findViewById<TextView>(R.id.user_age)
+                val phoneTextView = findViewById<TextView>(R.id.user_phone)
+
+                firstNameTextView.text = updatedFirstName
+                lastNameTextView.text = updatedLastName
+                ageTextView.text = updatedAge
+                phoneTextView.text = updatedPhone
+
+                //Perform toast for updating user
+                Toast.makeText(this,
+                    "User details have been updated", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
 }

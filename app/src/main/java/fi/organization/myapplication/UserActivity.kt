@@ -22,6 +22,7 @@ class UserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user)
 
+        //Initialize UI elements
         listView = findViewById(R.id.listView)
         val firstNameEditText = findViewById<EditText>(R.id.firstNameEditText)
         val lastNameEditText = findViewById<EditText>(R.id.lastNameEditText)
@@ -34,11 +35,12 @@ class UserActivity : AppCompatActivity() {
 
             //Check if text fields are empty
             if (firstName.isNotEmpty() && lastName.isNotEmpty()) {
+
                 Toast.makeText(this, "User added", Toast.LENGTH_SHORT).show()
                 firstNameEditText.text.clear()
                 lastNameEditText.text.clear()
             } else {
-                Toast.makeText(this, "Please fill out from", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill out form", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -107,11 +109,6 @@ class UserActivity : AppCompatActivity() {
         return input
     }
 }
-
-
-
-
-
 
 
 

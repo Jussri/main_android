@@ -52,7 +52,7 @@
             android:id="@+id/delete_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete User"
+            android:text="@string/delete_user"
             android:layout_marginTop="16dp"
             />
 
@@ -65,7 +65,7 @@
             android:id="@+id/update_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Update User"
+            android:text="@string/update_user"
             android:layout_marginTop="16dp"
             />
 
