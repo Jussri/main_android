@@ -9,6 +9,10 @@ import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * This displays the details of a user
+ * and it allows you to delete or update the user's details.
+ */
 class UserDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,24 +46,26 @@ class UserDetailsActivity : AppCompatActivity() {
             .load(imageUrl)
             .into(userImageView)
 
-        //Set click listener for delete button
+        //Click listener for delete button
         deleteButton.setOnClickListener {
             deleteButton()
         }
 
-        //Set click listener for update button
+        //Click listener for update button
         updateButton.setOnClickListener {
             updateButton()
         }
     }
 
-    //Show confirmation dialog for deleting user
+    /**
+    * Show confirmation dialog for deleting user
+    */
     private fun deleteButton() {
         AlertDialog.Builder(this)
         .setMessage("Are you sure you want to delete this user?")
         .setPositiveButton("Yes") { _, _ ->
 
-            //Perform toast for deleting user
+            //Display toast message after deleting user
             Toast.makeText(this, "User deleted", Toast.LENGTH_SHORT).show()
 
             //Return to user activity page
@@ -72,7 +78,9 @@ class UserDetailsActivity : AppCompatActivity() {
         .show()
     }
 
-    //Shows a dialog box for editing user details and updates the UI
+    /**
+    * Shows a dialog box for editing user details and updates the UI
+    */
     private fun updateButton() {
 
         //Inflate layout for dialog box
@@ -90,11 +98,11 @@ class UserDetailsActivity : AppCompatActivity() {
             .setView(updateView)
             .setPositiveButton("Save") { _, _ ->
 
-                //When Save button is clicked, retrieve the updated user details
+                //When save button is clicked, retrieve the updated user details
                 val updatedFirstName = firstNameEdit.text.toString()
                 val updatedLastName = lastNameEdit.text.toString()
-                val updatedAge = ageEdit.text.toString()
-                val updatedPhone = phoneEdit.text.toString()
+                val updatedAge = "Age: " +  ageEdit.text.toString()
+                val updatedPhone = "Phone: " +  phoneEdit.text.toString()
 
                 //Update the UI with the updated details
                 val firstNameTextView = findViewById<TextView>(R.id.user_firstName)
@@ -107,7 +115,7 @@ class UserDetailsActivity : AppCompatActivity() {
                 ageTextView.text = updatedAge
                 phoneTextView.text = updatedPhone
 
-                //Perform toast for updating user
+                //Display toast message after deleting user
                 Toast.makeText(this,
                     "User details have been updated", Toast.LENGTH_SHORT).show()
             }
