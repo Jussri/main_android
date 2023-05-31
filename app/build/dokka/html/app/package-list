@@ -1,0 +1,23 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:fi.organization.myapplication////PointingToDeclaration/app/fi.organization.myapplication/index.html
+$dokka.location:fi.organization.myapplication/MainActivity///PointingToDeclaration/app/fi.organization.myapplication/-main-activity/index.html
+$dokka.location:fi.organization.myapplication/MainActivity/MainActivity/#/PointingToDeclaration/app/fi.organization.myapplication/-main-activity/-main-activity.html
+$dokka.location:fi.organization.myapplication/Person///PointingToDeclaration/app/fi.organization.myapplication/-person/index.html
+$dokka.location:fi.organization.myapplication/Person/Person/#kotlin.String?#kotlin.String?#kotlin.String?#kotlin.String?#kotlin.String?/PointingToDeclaration/app/fi.organization.myapplication/-person/-person.html
+$dokka.location:fi.organization.myapplication/Person/age/#/PointingToDeclaration/app/fi.organization.myapplication/-person/age.html
+$dokka.location:fi.organization.myapplication/Person/firstName/#/PointingToDeclaration/app/fi.organization.myapplication/-person/first-name.html
+$dokka.location:fi.organization.myapplication/Person/image/#/PointingToDeclaration/app/fi.organization.myapplication/-person/image.html
+$dokka.location:fi.organization.myapplication/Person/lastName/#/PointingToDeclaration/app/fi.organization.myapplication/-person/last-name.html
+$dokka.location:fi.organization.myapplication/Person/phone/#/PointingToDeclaration/app/fi.organization.myapplication/-person/phone.html
+$dokka.location:fi.organization.myapplication/SearchActivity///PointingToDeclaration/app/fi.organization.myapplication/-search-activity/index.html
+$dokka.location:fi.organization.myapplication/SearchActivity/SearchActivity/#/PointingToDeclaration/app/fi.organization.myapplication/-search-activity/-search-activity.html
+$dokka.location:fi.organization.myapplication/UserActivity///PointingToDeclaration/app/fi.organization.myapplication/-user-activity/index.html
+$dokka.location:fi.organization.myapplication/UserActivity/UserActivity/#/PointingToDeclaration/app/fi.organization.myapplication/-user-activity/-user-activity.html
+$dokka.location:fi.organization.myapplication/UserDetailsActivity///PointingToDeclaration/app/fi.organization.myapplication/-user-details-activity/index.html
+$dokka.location:fi.organization.myapplication/UserDetailsActivity/UserDetailsActivity/#/PointingToDeclaration/app/fi.organization.myapplication/-user-details-activity/-user-details-activity.html
+$dokka.location:fi.organization.myapplication/UserJsonObject///PointingToDeclaration/app/fi.organization.myapplication/-user-json-object/index.html
+$dokka.location:fi.organization.myapplication/UserJsonObject/UserJsonObject/#kotlin.collections.MutableList[fi.organization.myapplication.Person]?/PointingToDeclaration/app/fi.organization.myapplication/-user-json-object/-user-json-object.html
+$dokka.location:fi.organization.myapplication/UserJsonObject/users/#/PointingToDeclaration/app/fi.organization.myapplication/-user-json-object/users.html
+fi.organization.myapplication
+
